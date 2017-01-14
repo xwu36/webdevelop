@@ -1,8 +1,11 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.ctnforbtn {
+	margin-top: 7px;
 }
 
-a {
-  color: #00B7FF;
+.btn.btn-default.pull-right {
+	margin-left: 5px;
+}
+ 
+.navbar.navbar-default  .container-fluid{
+	width: 80%;
 }
