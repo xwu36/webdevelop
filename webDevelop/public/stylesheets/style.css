@@ -11,5 +11,10 @@
 } 
 
 .panel-body .btn.btn-primary {
+	margin-top: 16px;
 	margin-bottom: 30px;
+}
+
+#minimumcharacters {
+	color: #777;
 }

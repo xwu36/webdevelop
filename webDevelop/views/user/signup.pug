@@ -7,7 +7,10 @@ block content
         .panel-body
           h1 
             strong Sign Up
-          p Validation Errors
+          if messages.length > 0
+            .alert.alert-danger
+              each message in messages
+                p #{ message }
           form(action = "/user/signup", method = "post")
             .form-group
               label(for="username") Username
@@ -18,6 +21,7 @@ block content
             .form-group
               label(for="password") Password
               input(type="password" id="password" name="password").form-control
+              small#minimumcharacters Minimum of 6 characters in length
             .form-group
               label(for="confirmPassword") Re-enter Password
               input(type="password" id="confirmPassword" name="confirmPassword").form-control
