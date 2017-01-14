@@ -1,11 +1,15 @@
-.ctnforbtn {
-	margin-top: 7px;
-}
-
-.btn.btn-default.pull-right {
+.btn.btn-default.navbar-btn{
 	margin-left: 5px;
 }
  
-.navbar.navbar-default  .container-fluid{
+.navbar.navbar-inverse  .container-fluid{
 	width: 80%;
+}
+
+#cntforsignup {
+	margin-top: 20px;
+} 
+
+.panel-body .btn.btn-primary {
+	margin-bottom: 30px;
 }

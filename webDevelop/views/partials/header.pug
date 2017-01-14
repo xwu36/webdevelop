@@ -1,4 +1,4 @@
-nav.navbar.navbar-default
+nav.navbar.navbar-inverse
   .container-fluid
     // Brand and toggle get grouped for better mobile display
     .navbar-header
@@ -15,8 +15,6 @@ nav.navbar.navbar-default
           a(href='#')
             | Subscribe
             span.sr-only (current)
-        //li
-          //a(href='#') Link
         li.dropdown
           a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
             | Problems 
@@ -29,14 +27,7 @@ nav.navbar.navbar-default
             li.divider(role='separator')
             li
               a(href='#') Add Question
-            //li.divider(role='separator')
-            //li
-              //a(href='#') One more separated link
       .nav.navbar-nav.navbar-right 
-        .ctnforbtn
-          a.btn.btn-default.pull-right(href='#', role='button') Sign in
-          a.btn.btn-primary.pull-right(href='#', role='button') Sign up
-   
-    // /.navbar-collapse
-  // /.container-fluid
+        a.btn.btn-primary.navbar-bth(href='#', role='button') Sign up
+        a.btn.btn-default.navbar-btn(href='#', role='button') Sign in
 
