@@ -82,7 +82,7 @@ passport.use('local.signin', new LocalStrategy({
 		return done(null, false, {message:'No user find'});
 	}
 	if (!user.validPassword(password)){
-		return done(null, false, {message: 'wrong password'});
+		return done(null, false, {message: 'Wrong password.'});
 	}
 	return done(null, user);
 	});

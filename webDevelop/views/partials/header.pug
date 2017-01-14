@@ -28,6 +28,27 @@ nav.navbar.navbar-inverse
             li
               a(href='#') Add Question
       .nav.navbar-nav.navbar-right 
-        a.btn.btn-primary.navbar-bth(href='#', role='button') Sign up
-        a.btn.btn-default.navbar-btn(href='#', role='button') Sign in
+        if login
+          ul.nav.navbar-nav.navbar-right
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                | Username
+                span.caret
+              ul.dropdown-menu
+                li
+                  a(href='#') Profile
+                li.divider(role='separator')
+                li
+                  a(href='#') My Progress
+                li
+                  a(href='#') My List
+                li.divider(role='separator')
+                li
+                  a(href='/user/logout') Sign out
+        else
+          a.btn.btn-primary.navbar-bth(href='/user/signup', role='button') Sign up
+          a.btn.btn-default.navbar-btn(href='/user/signin', role='button') Sign in
+
+
+
 
