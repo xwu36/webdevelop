@@ -7,7 +7,8 @@ var csrfProtection = csrf();
 router.use(csrfProtection);
 
 router.get('/profile', isLoggedIn, function(req, res, next){
-	res.render('user/profile');
+	var username = req.flash('username');
+	res.render('user/profile', { username : username});
 });
 
 router.get('/logout', function(req, res, next){
