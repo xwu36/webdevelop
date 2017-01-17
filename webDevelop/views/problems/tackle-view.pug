@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+  .row
+    .col-md-7.col-md-offset-1
+      //.container.tackle.view
+      h2 #{ algorithms.index }. #{ algorithms.title }
+      hr
+      p #{ algorithms.content }
+      form(action = "#", method = "post")
+            .form-group
+              label(for = "solution") Solution
+              textarea(type="text" id="solution" name="solution" rows = 15).form-control
+            button(type="submit").btn.btn-primary.pull-right
+              strong Submit Solution
+            | &nbsp
+            button(type="submit").btn.btn-default.pull-right
+              strong Run Code

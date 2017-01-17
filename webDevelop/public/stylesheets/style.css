@@ -2,7 +2,7 @@
 	margin-left: 5px;
 }
  
-.navbar.navbar-inverse  .container-fluid{
+.navbar.navbar-inverse .container-fluid{
 	width: 80%;
 }
 
@@ -17,4 +17,24 @@
 
 #minimumcharacters {
 	color: #777;
+}
+
+.thclass1 {
+	width: 100px;
+}
+
+.thclass2 {
+	width: 300px;
+}
+
+.thclass3 {
+	width: 200px;
+}
+
+.container.tackle.view {
+	width: 60%;
+}
+
+.col-md-7.col-md-offset-1 .btn.btn-default.pull-right {
+	margin-right: 5px;
 }

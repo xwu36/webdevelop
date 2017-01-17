@@ -1,0 +1,34 @@
+extends ../layout
+
+block content 
+  .container
+    .panel.panel-default
+      table.table.table-striped
+        thead
+          tr
+            th #
+            th Lastname
+            th Email
+        tbody
+          each chunk in chunks
+            each algorithms in chunk
+              tr
+                th.thclass1= algorithms.index
+                th.thclass2 
+                  a(href= '/problems/tackle-view/' + algorithms._id)= algorithms.title
+                th.thclass3 easy
+      .panel-footer
+        nav(aria-label='Page navigation')
+          ul.pagination
+            li
+              a(href='#', aria-label='Previous')
+                span(aria-hidden='true') «
+            - for (var i = 1; i < pages; i++){
+              li
+                a(href='/problems/algorithms/' + i)= i
+            - }
+            li
+              a(href='#', aria-label='Next')
+                span(aria-hidden='true') »
+
+  
