@@ -16,7 +16,7 @@ router.get('/problems/algorithms/:i', function(req, res, next){
   	else{
   		var chunks = [];
   		var chunkSize = 2;
-  		var pagenumber = res.locals.pagenumber = (req.params.i - 1) * chunkSize;
+  		var pagenumber = (req.params.i - 1) * chunkSize;
   		var pages = docs.length/chunkSize + 1;
 
   		chunks.push(docs.slice(pagenumber, pagenumber + chunkSize));
