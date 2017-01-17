@@ -15,12 +15,14 @@ router.get('/problems/algorithms/:i', function(req, res, next){
   		redirect('error');
   	else{
   		var chunks = [];
-  		var chunkSize = 2;
-  		var pagenumber = res.locals.pagenumber = (req.params.i - 1) * chunkSize;
-  		var pages = docs.length/chunkSize + 1;
+  		var chunkSize = 30;
+  		var pagenumber = (req.params.i - 1) * chunkSize;
+      res.locals.pageNumberGlobal = req.params.i;
+      console.log(res.locals.pageNumberGlobal);
+  		var pages = Math.floor(docs.length/chunkSize) + 1;
 
   		chunks.push(docs.slice(pagenumber, pagenumber + chunkSize));
-  	  	res.render('problems/algorithms', { chunks : chunks, pages : pages });
+  	  res.render('problems/algorithms', { chunks : chunks, pages : pages, pagenumber : req.params.i });
     }
   });
 });
