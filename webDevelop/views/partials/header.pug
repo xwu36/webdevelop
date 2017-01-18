@@ -24,8 +24,8 @@ nav.navbar.navbar-inverse
               if session.pageNumberGlobal
                 a(href='/problems/algorithms/' + session.pageNumberGlobal) Algorithms
               else 
-                - session.pageNumberGlobal = 1
-                a(href='/problems/algorithms/') Algorithms
+                -session.pageNumberGlobal = 1
+                a(href='/problems/algorithms/' + session.pageNumberGlobal) Algorithms
             li
               a(href='#') Database
             li.divider(role='separator')
