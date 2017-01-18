@@ -6,37 +6,4 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-<<<<<<< HEAD
-/* GET algorithms page. */
-router.get('/problems/algorithms/:i', function(req, res, next){
-  //res.send('algorithms');
-  Algorithms.find( function(err, docs){
-  	if(err)
-  		redirect('error');
-  	else{
-  		var chunks = [];
-  		var chunkSize = 2;
-  		var pagenumber = (req.params.i - 1) * chunkSize;
-  		var pages = docs.length/chunkSize + 1;
-
-  		chunks.push(docs.slice(pagenumber, pagenumber + chunkSize));
-  	  	res.render('problems/algorithms', { chunks : chunks, pages : pages });
-    }
-  });
-});
-
-/* GET algorithms page. */
-router.get('/problems/tackle-view/:algorithmsId', function(req, res, next){
-  //res.send('algorithms');
-  var algorithmsId = req.params.algorithmsId;
-  Algorithms.findById(algorithmsId, function(err, docs){
-  	if(err)
-  		res.redirect('error');
-  	else
-  		res.render('problems/tackle-view', { algorithms : docs });
-  });
-});
-
-=======
->>>>>>> c6ee39df4efa416ae2149dfc0f143ca41bee844b
 module.exports = router;

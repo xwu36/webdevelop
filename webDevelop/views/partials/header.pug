@@ -21,15 +21,11 @@ nav.navbar.navbar-inverse
             span.caret
           ul.dropdown-menu
             li
-<<<<<<< HEAD
-              a(href='/problems/algorithms/' + 1) Algorithms
-=======
               if session.pageNumberGlobal
                 a(href='/problems/algorithms/' + session.pageNumberGlobal) Algorithms
               else 
                 - session.pageNumberGlobal = 1
                 a(href='/problems/algorithms/') Algorithms
->>>>>>> c6ee39df4efa416ae2149dfc0f143ca41bee844b
             li
               a(href='#') Database
             li.divider(role='separator')

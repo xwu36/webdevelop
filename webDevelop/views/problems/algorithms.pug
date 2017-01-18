@@ -3,22 +3,13 @@ extends ../layout
 block content 
   .row
     .col-md-9.col-md-offset-1
-<<<<<<< HEAD
-     .panel.panel-default
-=======
       .panel.panel-default
->>>>>>> c6ee39df4efa416ae2149dfc0f143ca41bee844b
         table.table.table-striped
           thead
             tr
               th #
-<<<<<<< HEAD
-              th Lastname
-              th Email
-=======
               th Title
               th Difficulty
->>>>>>> c6ee39df4efa416ae2149dfc0f143ca41bee844b
           tbody
             each chunk in chunks
               each algorithms in chunk
@@ -26,23 +17,6 @@ block content
                   th.thclass1= algorithms.index
                   th.thclass2 
                     a(href= '/problems/tackle-view/' + algorithms._id)= algorithms.title
-<<<<<<< HEAD
-                  th.thclass3 easy
-        .panel-footer
-          nav(aria-label='Page navigation')
-            ul.pagination
-              li
-                a(href='#', aria-label='Previous')
-                  span(aria-hidden='true') «
-              - for (var i = 1; i < pages; i++){
-                li
-                  a(href='/problems/algorithms/' + i)= i
-              - }
-              li
-                a(href='#', aria-label='Next')
-                  span(aria-hidden='true') »
-
-=======
                   th.thclass3= algorithms.difficulty
         .panel-footer
           nav(aria-label='Page navigation')
@@ -64,5 +38,4 @@ block content
                   a(href='/problems/algorithms/' + (Number(pagenumber) + 1), aria-label='Next')
                     span(aria-hidden='true') »
  
->>>>>>> c6ee39df4efa416ae2149dfc0f143ca41bee844b
   
