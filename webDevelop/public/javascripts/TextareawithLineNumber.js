@@ -1,33 +1,8 @@
-extends ../layout
+createTextAreaWithLines('codeTextarea');
 
-block content
-  .row
-    .col-md-7.col-md-offset-1
-      h2 #{ algorithms.index }. #{ algorithms.title }
-      hr
-      p #{ algorithms.content }
-      hr
-      .row
-        .col-xs-3.col-sm-3
-          select.form-control
-            option(value='Java') Java
-            option(value='C') C
-            option(value='C++') C++
-            option(value='Python') Python
-      hr
-      form(action = "#", method = "post")
-        .form-group
-          textarea(type="text" id="codeTextarea" name="codeTextarea" rows = 15)
-        button(type="submit").btn.btn-primary.pull-right
-          strong Submit Solution
-        | &nbsp
-        button(type="submit").btn.btn-default.pull-right
-          strong Run Code
-
-  script(type='text/javascript').
-    var lineObjOffsetTop = 2;
+var lineObjOffsetTop = 2;
     
-    function createTextAreaWithLines(id){
+function createTextAreaWithLines(id){
 
     var el = document.createElement('DIV');
     var ta = document.getElementById(id);
@@ -63,12 +38,9 @@ block content
     ta.onfocus = function() { positionLineObj(lineObj,ta); };
     ta.onmouseover = function() { positionLineObj(lineObj,ta); };
     lineObj.innerHTML = string;
-    }
+}
     
-    function positionLineObj(obj,ta)
-    {
+function positionLineObj(obj,ta)
+{
     obj.style.top = (ta.scrollTop * -1 + lineObjOffsetTop) + 'px';
-    }
-
-  script(type='text/javascript').
-    createTextAreaWithLines('codeTextarea');
+}

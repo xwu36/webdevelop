@@ -1,32 +1,29 @@
 var express = require('express');
 var router = express.Router();
+var Algorithms = require('../models/algorithms');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-<<<<<<< HEAD
 /* GET algorithms page. */
-router.get('/problems/algorithms/:i', function(req, res, next){
+router.get('/algorithms/:i', function(req, res, next){
   //res.send('algorithms');
   Algorithms.find( function(err, docs){
   	if(err)
   		redirect('error');
   	else{
   		var chunks = [];
-  		var chunkSize = 2;
+  		var chunkSize = 30;
   		var pagenumber = (req.params.i - 1) * chunkSize;
-  		var pages = docs.length/chunkSize + 1;
+  		if(req.params.i)
+        	req.session.pageNumberGlobal = req.params.i;
+  		var pages = Math.floor(docs.length/chunkSize) + 1;
 
   		chunks.push(docs.slice(pagenumber, pagenumber + chunkSize));
-  	  	res.render('problems/algorithms', { chunks : chunks, pages : pages });
+  	  res.render('problems/algorithms', { chunks : chunks, pages : pages, pagenumber : req.params.i });
     }
   });
 });
 
 /* GET algorithms page. */
-router.get('/problems/tackle-view/:algorithmsId', function(req, res, next){
+router.get('/tackle-view/:algorithmsId', function(req, res, next){
   //res.send('algorithms');
   var algorithmsId = req.params.algorithmsId;
   Algorithms.findById(algorithmsId, function(err, docs){
@@ -37,6 +34,4 @@ router.get('/problems/tackle-view/:algorithmsId', function(req, res, next){
   });
 });
 
-=======
->>>>>>> c6ee39df4efa416ae2149dfc0f143ca41bee844b
 module.exports = router;

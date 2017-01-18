@@ -38,3 +38,26 @@
 .col-md-7.col-md-offset-1 .btn.btn-default.pull-right {
 	margin-right: 5px;
 }
+
+
+#codeTextarea{
+	border: 1px solid #eee;
+	border-radius: 5px;
+	height: 510px;
+	width: 620px;
+}
+.textAreaWithLines{
+	line-height:120%;
+	font-family: sans-serif;
+	font-size:13px;
+	background: #eee;
+}
+.textAreaWithLines textarea,.textAreaWithLines div{
+	line-height:120%;
+	font-family: sans-serif;
+	font-size:13px;
+	color:#777;
+}
+.lineObj{
+	color:#777;
+}
