@@ -2,5 +2,6 @@
 	 Complete Problem list and Problem tackle view
 	 --use session to store the problem pages to make sure once visitors go back, they can reach the most recent pages
 	 --implete pagenation
+         --support showing line number in Textarea
 	 Complete the compile algorithms and view for C (need page refreshing)
 	 --store the code visitor typed so that once refreshing the page, our website is able to recover them.
