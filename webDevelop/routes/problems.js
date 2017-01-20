@@ -14,8 +14,7 @@ router.get('/algorithms/:i', function(req, res, next){
   		var chunks = [];
   		var chunkSize = 30;
   		var pagenumber = (req.params.i - 1) * chunkSize;
-  		if(req.params.i)
-        	req.session.pageNumberGlobal = req.params.i;
+      req.session.pageNumberGlobal = req.params.i;
   		var pages = Math.floor(docs.length/chunkSize) + 1;
 
   		chunks.push(docs.slice(pagenumber, pagenumber + chunkSize));
@@ -24,7 +23,7 @@ router.get('/algorithms/:i', function(req, res, next){
   });
 });
 
-/* GET algorithms page. */
+/* GET tackle view page. */
 router.get('/tackle-view/:algorithmsId', function(req, res, next){
 
   var algorithmsId = req.params.algorithmsId;
@@ -35,7 +34,7 @@ router.get('/tackle-view/:algorithmsId', function(req, res, next){
   Algorithms.findById(algorithmsId, function(err, docs){
   	if(err)
   		res.redirect('error404');
-  	else if( !hasStderr )
+  	else if( !hasStderr[0] )
       res.render('problems/tackle-view', { algorithms : docs, stderr : [], codeTextarea : codeTextarea.join("\n") } );
     else
       res.render('problems/tackle-view', { algorithms : docs, stderr : stderr, codeTextarea : codeTextarea.join("\n") } );
@@ -49,12 +48,10 @@ router.post('/tackle-view', function(req, res, next){
   req.flash('codeTextarea', codeTextarea);
   
   fs.writeFile('./temp.c', req.body.codeTextarea, function(err){
-
     var result = [];
     if(err)
       return res.redirect('index');
     else if(fs.existsSync('./temp.c')){
-
       var spawn = require('child_process').spawn;
       var compile = spawn('gcc', ['temp.c']);
 
@@ -63,35 +60,27 @@ router.post('/tackle-view', function(req, res, next){
       });
 
       compile.stderr.on('data', function (data) {
-
         if(data){
-
           var stderr = data.toString();
           result.push(stderr);
 
           /*var stderr10 = stderr.substring(0, 10);
           var checkflag = "temp.c: In";
           if(checkflag == stderr10 && i == 1){
-            console.log('1');
             //res.end();           
           }else if(checkflag != stderr10 && i == 1){
             req.flash('stderr', result);
-            console.log('2');
             res.redirect('/problems/tackle-view/' + req.body.problemId); 
             res.end();         
           }else if(checkflag != stderr10 && i == 2){
-            req.flash('stderr', result);    
-            console.log('3');          
+            req.flash('stderr', result);              
             res.redirect('/problems/tackle-view/' + req.body.problemId); 
             res.end();         
           }else{
             i = 0;
-            console.log('4');
             res.end();
           }*/
         }
-      }, function(){
-
       });
       
       compile.on('close', function (code) {  
@@ -101,17 +90,16 @@ router.post('/tackle-view', function(req, res, next){
       setTimeout(function(){
         if(result.length > 0){
           req.flash('stderr', result);
-          req.flash('hasStderr', true);
+          req.flash('hasStderr', [true]);       
+          return res.redirect('/problems/tackle-view/' + req.body.problemId); 
         }else{
-          req.flash('hasStderr', false);
+          req.flash('hasStderr', [false]);
+          return res.redirect('/problems/tackle-view/' + req.body.problemId);
         }
-        console.log(result);
-        return res.redirect('/problems/tackle-view/' + req.body.problemId); 
-      }, 200)
+      }, 200);
+
     }
-
   });
-
 });
 
 module.exports = router;

@@ -18,13 +18,14 @@ block content
         hr
         form(action = "/problems/tackle-view", method = "post")
           .form-group
-            input(type="hidden" id= "problemId" name = "problemId" value = algorithms._id )
+            i(type="hidden" id= "problemId" name = "problemId" value = algorithms._id )
             textarea(type="text" id="codeTextarea" name="codeTextarea" rows = 15 ) #{codeTextarea}
             .clearfix
-              button(type="submit").btn.btn-primary.pull-right.submitSolution
-                strong Submit Solution
-              button(type="submit").btn.btn-default.pull-right.runCode
+              button(type="submit").btn.btn-primary.pull-right.submitSolution#submitSolution
+                strong Compile Your code
+              button(type="submit").btn.btn-default.pull-right.runCode#runCode
                 strong Run Code
+        //button#hide hide
 
     .row.complieError
       .col-md-10.col-sm-10.col-xs-10.col-md-offset-1.col-xs-offset-1.col-xs-offset-1
@@ -36,50 +37,16 @@ block content
           .alert.alert-success
             p Well done! your code is successfuly compiled
 
+  script(type = 'text/javascript' src = '/javascripts/TextareawithLineNumber.js')
 
-  script(type='text/javascript').
-    var lineObjOffsetTop = 2;
-    
-    function createTextAreaWithLines(id){
+  //script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+  //script(type='text/javascript').
+    $(document).ready(function(){
+      $("#hide").click(function(){
+          $.post('problems/tackle-view.pug'), "12345", function(data, status){
+            $("p").hide();
+            $("#codeTextarea") = "12345"
+          });
+      });
+    });
 
-    var el = document.createElement('DIV');
-    var ta = document.getElementById(id);
-    ta.parentNode.insertBefore(el,ta);
-    el.appendChild(ta);
-    el.className='textAreaWithLines';
-    ta.style.position = 'absolute';
-    ta.style.left = '30px';
-    el.style.height = (ta.offsetHeight + 2) + 'px';
-    el.style.overflow='hidden';
-    el.style.position = 'relative';
-    var lineObj = document.createElement('DIV');
-    lineObj.style.position = 'absolute';
-    lineObj.style.top = lineObjOffsetTop + 'px';
-    lineObj.style.left = '0px';
-    lineObj.style.width = '27px';
-    el.insertBefore(lineObj,ta);
-    lineObj.style.textAlign = 'right';
-    lineObj.className='lineObj';
-    var string = '';
-
-    for(var no=1;no<200;no++){
-        if(string.length>0)string = string + '<br>';
-        string = string + no;
-    }
-
-    ta.onkeydown = function() { positionLineObj(lineObj,ta); };
-    ta.onmousedown = function() { positionLineObj(lineObj,ta); };
-    ta.onscroll = function() { positionLineObj(lineObj,ta); };
-    ta.onblur = function() { positionLineObj(lineObj,ta); };
-    ta.onfocus = function() { positionLineObj(lineObj,ta); };
-    ta.onmouseover = function() { positionLineObj(lineObj,ta); };
-    lineObj.innerHTML = string;
-    }
-    
-    function positionLineObj(obj,ta)
-    {
-      obj.style.top = (ta.scrollTop * -1 + lineObjOffsetTop) + 'px';
-    }
-
-  script(type='text/javascript').
-    createTextAreaWithLines('codeTextarea');
