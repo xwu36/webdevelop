@@ -44,20 +44,41 @@
 	border: 1px solid #eee;
 	border-radius: 5px;
 	height: 510px;
-	width: 620px;
+	width: 97%;
 }
+
 .textAreaWithLines{
 	line-height:120%;
 	font-family: sans-serif;
 	font-size:13px;
 	background: #eee;
 }
+
 .textAreaWithLines textarea,.textAreaWithLines div{
 	line-height:120%;
 	font-family: sans-serif;
 	font-size:13px;
 	color:#777;
 }
+
 .lineObj{
 	color:#777;
+}
+
+.row.complieError {
+	margin-top: 10px;
+}
+
+#codeTextareaContainer {
+	width: 100%;
+}
+
+.btn.btn-default.pull-right.runCode {
+	margin-top: 15px;
+	margin-right: 5px;	
+}
+
+.btn.btn-primary.pull-right.submitSolution {
+	margin-top: 15px;
+	margin-right: 5px;	
 }

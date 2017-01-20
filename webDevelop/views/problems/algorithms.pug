@@ -14,10 +14,10 @@ block content
             each chunk in chunks
               each algorithms in chunk
                 tr
-                  th.thclass1= algorithms.index
-                  th.thclass2 
+                  td.thclass1= algorithms.index
+                  td.thclass2 
                     a(href= '/problems/tackle-view/' + algorithms._id)= algorithms.title
-                  th.thclass3= algorithms.difficulty
+                  td.thclass3= algorithms.difficulty
         .panel-footer
           nav(aria-label='Page navigation')
             ul.pagination
