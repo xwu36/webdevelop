@@ -9,13 +9,11 @@ function createTextAreaWithLines(id){
     ta.parentNode.insertBefore(el,ta);
     el.appendChild(ta);
     el.className='textAreaWithLines';
-    //el.style.width = (ta.offsetWidth + 30) + 'px';
     ta.style.position = 'absolute';
     ta.style.left = '30px';
     el.style.height = (ta.offsetHeight + 2) + 'px';
     el.style.overflow='hidden';
     el.style.position = 'relative';
-    //el.style.width = (ta.offsetWidth + 30) + 'px';
     var lineObj = document.createElement('DIV');
     lineObj.style.position = 'absolute';
     lineObj.style.top = lineObjOffsetTop + 'px';

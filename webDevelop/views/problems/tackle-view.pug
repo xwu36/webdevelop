@@ -18,7 +18,7 @@ block content
         hr
         form(action = "/problems/tackle-view", method = "post")
           .form-group
-            i(type="hidden" id= "problemId" name = "problemId" value = algorithms._id )
+            input(type="hidden" id= "problemId" name = "problemId" value = algorithms._id )
             textarea(type="text" id="codeTextarea" name="codeTextarea" rows = 15 ) #{codeTextarea}
             .clearfix
               button(type="submit").btn.btn-primary.pull-right.submitSolution#submitSolution
